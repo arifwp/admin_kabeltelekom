@@ -9,13 +9,18 @@ use Illuminate\Support\Facades\Session;
 
 class AdminController extends Controller
 {
+
     public function index(){
         $userFullName = Session::get('userFullName');
         if($userFullName == null){
             return redirect()->route('index')->withErrors(['failed' => 'You have to login first']);
         }
 
-        $data = User::all();
+        $data = DB::table('users')
+        ->where('status', 'ACTIVE')
+        ->whereDate('created_at', '>', '2023-08-01')
+        ->whereDate('created_at', '<', '2023-08-31')
+        ->get();
         return view("admin.index", compact("data"));
     }
 

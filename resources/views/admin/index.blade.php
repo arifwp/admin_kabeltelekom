@@ -142,6 +142,7 @@
                                             <th>Email</th>
                                             <th>IP Address</th>
                                             <th>Status</th>
+                                            <th>Created at</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -153,6 +154,7 @@
                                             <th>Email</th>
                                             <th>IP Address</th>
                                             <th>Status</th>
+                                            <th>Created at</th>
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>
@@ -163,18 +165,18 @@
                                         @forelse($data as $user)
                                             <tr>
                                                 <td><?= $i++ ?></td>
-                                                <td>{{ $user['full_name'] }}</td>
-                                                <td>{{ $user['phone_number'] }}</td>
-                                                <td>{{ $user['email'] }}</td>
-                                                <td>{{ $user['ip_address'] }}</td>
-                                                <td>{{ $user['status'] }}</td>
+                                                <td>{{ $user->full_name }}</td>
+                                                <td>{{ $user->phone_number }}</td>
+                                                <td>{{ $user->email }}</td>
+                                                <td>{{ $user->ip_address }}</td>
+                                                <td>{{ $user->status }}</td>
+                                                <td>{{ $user->created_at }}</td>
                                                 <td>
                                                 <div class="dropdown">
                                                     <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         Action
                                                     </button>
                                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                        <a class="dropdown-item" href="#">Action</a>
                                                         <a class="dropdown-item" href="#">Edit</a>
                                                         <a class="dropdown-item" href="#">Delete</a>
                                                     </div>
